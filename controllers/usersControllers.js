@@ -1,4 +1,4 @@
-import User from "../models/usuarioModel.js";
+import User from "../models/userModel.js";
 // libreria para hashear password
 import bcrypt from "bcryptjs";
 // libreria para generar token para autentificacion

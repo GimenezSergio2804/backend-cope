@@ -2,7 +2,8 @@
 import express from "express"; // framework para creacion de proyectos (minimalista)
 import dotenv from "dotenv"; // variables de entorno
 import db from "./config/db.js"; // importacion de la base de datos
-import usuariosRoutes from "./routes/usuariosRoutes.js"; // rutas para usuarios
+import usersRoutes from "./routes/usersRoutes.js"; // rutas para usuarios
+import streetRoutes from "./routes/streetRoutes.js"; // rutas para calles
 
 // Cargar variables de entorno
 dotenv.config();
@@ -29,7 +30,9 @@ app.get("/test", (req, res) => {
   res.send("Estas dentro del sistema");
 });
 // usuarios
-app.use("/api/usuarios", usuariosRoutes);
+app.use("/api/usuarios", usersRoutes);
+//calles
+app.use("/api/calles", streetRoutes);
 
 // Iniciar el servidor | para este se necesitan dos cosas importantes, definir puerto y arrancar la app
 
