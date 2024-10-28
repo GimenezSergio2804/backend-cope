@@ -4,6 +4,7 @@ import dotenv from "dotenv"; // variables de entorno
 import db from "./config/db.js"; // importacion de la base de datos
 import usersRoutes from "./routes/usersRoutes.js"; // rutas para usuarios
 import streetRoutes from "./routes/streetRoutes.js"; // rutas para calles
+import onuRoutes from "./routes/onuRoutes.js"; // rutas para onu (modem de fibra optica)
 
 // Cargar variables de entorno
 dotenv.config();
@@ -13,7 +14,7 @@ try {
   await db.authenticate();
   console.log("Conexion correcta a la Base de datos");
   // Sincroniza todos los modelos con la base de datos
-  await db.sync();
+  await db.sync(); // me crea la tabla en caso de que no este creada
 } catch (err) {
   console.error("Error al conectar o sincronizar con la base de datos:", err);
 }
@@ -31,8 +32,10 @@ app.get("/test", (req, res) => {
 });
 // usuarios
 app.use("/api/usuarios", usersRoutes);
-//calles
+// calles
 app.use("/api/calles", streetRoutes);
+// onus
+app.use("/api/onus", onuRoutes);
 
 // Iniciar el servidor | para este se necesitan dos cosas importantes, definir puerto y arrancar la app
 

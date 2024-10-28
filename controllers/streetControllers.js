@@ -8,7 +8,7 @@ const streetControllers = {
       const newStreet = await Street.create({ name: newName });
       res
         .status(201)
-        .json({ message: " Calle registrada con Exito", newStreet });
+        .json({ message: " Calle registrada con Exito", data: newStreet });
     } catch (err) {
       res.status(500).json({ error: "Error al crear la Calle", err });
     }

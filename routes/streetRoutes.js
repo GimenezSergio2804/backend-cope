@@ -1,6 +1,6 @@
 import express from "express";
 import authMiddleware from "../middleware/authMiddleware.js";
-import streetControllers from "../controllers/streetController.js";
+import streetControllers from "../controllers/streetControllers.js";
 
 // modulo routing de express
 const router = express.Router();

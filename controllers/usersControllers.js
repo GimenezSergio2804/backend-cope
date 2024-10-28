@@ -3,7 +3,6 @@ import User from "../models/userModel.js";
 import bcrypt from "bcryptjs";
 // libreria para generar token para autentificacion
 import jwt from "jsonwebtoken";
-import db from "../config/db.js";
 
 const userControllers = {
   // registrar un usuario en la base de datos
@@ -29,7 +28,7 @@ const userControllers = {
 
       return res
         .status(201)
-        .json({ message: "Usuario registrado exitosamente", user: newUser });
+        .json({ message: "Usuario registrado exitosamente", data: newUser });
     } catch (err) {
       console.error("Error al registrar el usuario:", err); // Muestra el error en la consola
       return res
