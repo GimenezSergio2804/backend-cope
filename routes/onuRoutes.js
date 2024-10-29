@@ -5,7 +5,7 @@ import onusControllers from "../controllers/onusControllers.js";
 // modulo routing de express
 const router = express.Router();
 
-// registrar calle
+// registrar onu
 router.post("/registrar-onu", onusControllers.createOnu);
 
 export default router;
