@@ -5,6 +5,7 @@ import db from "./config/db.js"; // importacion de la base de datos
 import usersRoutes from "./routes/usersRoutes.js"; // rutas para usuarios
 import streetRoutes from "./routes/streetRoutes.js"; // rutas para calles
 import onuRoutes from "./routes/onuRoutes.js"; // rutas para onu (modem de fibra optica)
+import stockRoutes from "./routes/stockRoutes.js"; // rutas para gestion de stock
 
 // Cargar variables de entorno
 dotenv.config();
@@ -14,7 +15,7 @@ try {
   await db.authenticate();
   console.log("Conexion correcta a la Base de datos");
   // Sincroniza todos los modelos con la base de datos
-  await db.sync(); // me crea la tabla en caso de que no este creada
+  await db.sync(); // me crea la tabla en caso de que no este creada // el force es para obligar a actualizar el modelo en base de datos, eliminar despues
 } catch (err) {
   console.error("Error al conectar o sincronizar con la base de datos:", err);
 }
@@ -36,6 +37,8 @@ app.use("/api/usuarios", usersRoutes);
 app.use("/api/calles", streetRoutes);
 // onus
 app.use("/api/onus", onuRoutes);
+// stock
+app.use("/api/stock", stockRoutes);
 
 // Iniciar el servidor | para este se necesitan dos cosas importantes, definir puerto y arrancar la app
 
